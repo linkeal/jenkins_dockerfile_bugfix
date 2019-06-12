@@ -2,6 +2,9 @@ def BASE_IMAGE="ubuntu"
 
 pipeline {
   agent any
+  parameters {
+    string(name: 'BASE_IMAGE', defaultValue: 'ubuntu', description: 'Base docker image name')
+  }
   stages {
     stage('Run Dockerfile') {
 	  agent {
