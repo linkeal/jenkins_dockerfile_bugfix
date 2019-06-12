@@ -1,5 +1,3 @@
-def BASE_IMAGE="ubuntu"
-
 pipeline {
   agent any
   parameters {
@@ -10,7 +8,7 @@ pipeline {
 	  agent {
 	    dockerfile {
 	      filename 'Dockerfile'
-	      additionalBuildArgs '--build-arg BASE_IMAGE=${BASE_IMAGE}'
+	      additionalBuildArgs '--build-arg BASE_IMAGE=ubuntu'
 	      reuseNode true
 	    }
 	  }
