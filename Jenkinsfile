@@ -10,7 +10,7 @@ pipeline {
       stages {
         stage("Print in Dockerfile"){
           steps {
-            sh("echo running inside of the container")
+            sh("uname -a")
           }
         }
       }
