@@ -1,4 +1,3 @@
-# You have to define a default BASE_IMAGE - otherwise Jenkins will fail
-ARG BASE_IMAGE=
+ARG BASE_IMAGe
 FROM ${BASE_IMAGE}
 RUN echo hello
