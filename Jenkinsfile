@@ -11,6 +11,7 @@ pipeline {
         stage("Print in Dockerfile"){
           steps {
             sh("uname -a")
+            sh("cat /etc/*release")
           }
         }
       }
