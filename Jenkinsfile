@@ -1,15 +1,10 @@
 pipeline {
   agent any
-  parameters {
-    string(name: 'BASE_IMAGE', defaultValue: 'ubuntu', description: 'Base docker image name')
-  }
   stages {
     stage('Run Dockerfile') {
 	  agent {
 	    dockerfile {
-	      filename 'Dockerfile'
-	      additionalBuildArgs "--build-arg BASE_IMAGE=${BASE_IMAGE}"
-	      reuseNode true
+	      additionalBuildArgs "--build-arg BASE_IMAGE=ubuntu:18.04"
 	    }
 	  }
       stages {
