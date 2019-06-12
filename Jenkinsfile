@@ -1,15 +1,23 @@
 pipeline {
-  agent {
-    dockerfile {
-      filename 'Dockerfile'
-      additionalBuildArgs '--build-arg BASE_IMAGE=ubuntu'
-      reuseNode true
-    }
+  agent any
+  parameters {
+    string(name: 'BASE_IMAGE', defaultValue: 'ubuntu', description: 'Base docker image name')
   }
   stages {
-    stage('Print') {
-      steps {
-        sh("echo running inside of the container")
+    stage('Run Dockerfile') {
+	  agent {
+	    dockerfile {
+	      filename 'Dockerfile'
+	      additionalBuildArgs '--build-arg BASE_IMAGE=ubuntu'
+	      reuseNode true
+	    }
+	  }
+      stages {
+        stage("Print in Dockerfile"){
+          steps {
+            sh("echo running inside of the container")
+          }
+        }
       }
     }
   }
