@@ -9,7 +9,6 @@ pipeline {
 	    dockerfile {
 	      filename 'Dockerfile'
 	      additionalBuildArgs "--build-arg BASE_IMAGE=${BASE_IMAGE}"
-              args "--entrypoint ''"
 	      reuseNode true
 	    }
 	  }
